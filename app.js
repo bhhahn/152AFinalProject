@@ -228,6 +228,7 @@ app.post('/exportLog', function(req, res, next) {
         o.swims = swims; Bike.find({}).then((bikes) => {
            o.bikes = bikes; Lift.find({}).then((lifts) => {
              o.lifts = lifts; Custom.find({}).then((customs) => {
+               o.customs = customs;
   // at this point o has everything
   // build message
 
