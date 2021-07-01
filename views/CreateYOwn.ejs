@@ -1,0 +1,40 @@
+<%- include('bootheader') -%>
+
+<%- include('menubar') -%>
+
+
+<h2>Log your workout</h2>
+  <form method="post" action="/customLog">
+    <label for="date">Date of Workout:</label><br>
+    <input type="date" size="60" name="date" ><br>
+    <label for="exercise">Type of Exercise:</label><br>
+    <input type="text" size="60" name="exercise"><br>
+    <label for="time">Duration of Workout:</label><br>
+    <input type="number" size="60" name="time"><br>
+    <label for="rep">Did you do reps?</label><br>
+    <input type="Boolean" size="60" name="rep"><br>
+    <label for="date">What rep number is this? (0 if you didn't do reps):</label><br>
+    <input type="number" size="60" name="reps"><br>
+    <input type="submit" value="record custom workout">
+  </form>
+  <h2> Your previous Custom workouts</h2>
+  <a href='/CreateYOwn/clear'><button>Reset Workouts</button></a>
+      <table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th>date</th><th>exercise</th>
+                  <th>time</th><th>reps</th></tr>
+          </thead>
+          <tbody>
+              <% customs.forEach(item => {%>
+                  <tr>
+                      <td><%= item.date%></td>
+                      <td><%= item.exercise %></td>
+                      <td><%= item.time%></td>
+                      <td><%= item.reps%></td>
+                  </tr>
+              <% }) %>
+          </tbody>
+        </table>
+
+<%- include('bootfooter') -%>

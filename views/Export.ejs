@@ -1,0 +1,17 @@
+<%- include('bootheader') -%>
+
+<%- include('menubar') -%>
+
+<div class="jumbotron">
+  <h1> Export your workouts </h1>
+</div>
+
+<form method="post" action="/exportLog">
+  <label for="email">Enter the Email you'd like to receive your workouts at:</label><br>
+  <input type="email" size="60" name="email" ><br>
+  <input type="submit" value="Send me my Workouts">
+</form>
+
+
+
+<%- include('bootfooter') -%>

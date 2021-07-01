@@ -1,0 +1,58 @@
+<%- include('bootheader') -%>
+
+<%- include('menubar') -%>
+
+<div class="jumbotron">
+  <h1> Running Workouts </h1>
+  <div id="runCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100 h-50" src="images/Running1.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 h-50" src="images/Running2.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 h-50" src="images/Running3.jpg" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 h-50" src="images/Running4.jpg" alt="Fourth slide">
+      </div>
+    </div>
+  </div>
+</div>
+  <h2>Log your workout</h2>
+    <form method="post" action="/runningLog">
+      <label for="date">Date of Workout:</label><br>
+      <input type="date" size="60" name="date" ><br>
+      <label for="distance">Distance (remember to be consistent):</label><br>
+      <input type="number" size="60" name="distance"><br>
+      <label for="time">Duration of Workout:</label><br>
+      <input type="number" size="60" name="time"><br>
+      <label for="rep">Did you do reps?</label><br>
+      <input type="Boolean" size="60" name="rep"><br>
+      <label for="date">What rep number is this? (0 if you didn't do reps):</label><br>
+      <input type="number" size="60" name="reps"><br>
+      <input type="submit" value="record run">
+    </form>
+    <h2> Your previous Running workouts</h2>
+      <a href='/Running/clear'><button>Reset Workouts</button></a>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>date</th><th>distance</th>
+                    <th>time</th><th>rep#</th></tr>
+            </thead>
+            <tbody>
+                <% runs.forEach(item => {%>
+                    <tr>
+                        <td><%= item.date%></td>
+                        <td><%= item.distance %></td>
+                        <td><%= item.time%></td>
+                        <td><%= item.reps%></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+          </table>
+
+<%- include('bootfooter') -%>
